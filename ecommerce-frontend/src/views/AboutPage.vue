@@ -1254,7 +1254,7 @@ const handleTeamImageError = (event: Event) => {
    ============================================ */
 .cta-section {
   padding: 80px 0;
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
+    background: linear-gradient(160deg, #fff5f7 0%, #fce4ec 20%, #f3e8ff 50%, #eef2ff 80%, #f0f0ff 100%);
 }
 
 .cta-box {

@@ -42,9 +42,9 @@
               </router-link>
             </li>
             <li class="nav-item" v-if="authStore.isAdmin">
-              <a href="http://localhost:8000/admin" class="nav-link" target="_blank">
+              <router-link to="/admin" class="nav-link" active-class="active">
                 <i class="fas fa-cog"></i> Admin
-              </a>
+              </router-link>
             </li>
           </ul>
           
@@ -124,10 +124,34 @@
       <router-view />
     </main>
 
-    <!-- Enhanced Footer -->
+    <!-- Professional Footer -->
     <footer class="footer">
+      <div class="bg-elements">
+        <span class="bg-element">🌸</span>
+        <span class="bg-element">💄</span>
+        <span class="bg-element">✨</span>
+        <span class="bg-element">🌺</span>
+        <span class="bg-element">💫</span>
+        <span class="bg-element">🦋</span>
+        <span class="bg-element">🌹</span>
+        <span class="bg-element">💖</span>
+        <span class="bg-element">🌟</span>
+        <span class="bg-element">🌷</span>
+        <span class="bg-element">🌻</span>
+        <span class="bg-element">💎</span>
+        <span class="bg-element">🌈</span>
+        <span class="bg-element">🪷</span>
+        <span class="bg-element">🌿</span>
+        <span class="bg-element">🌸</span>
+        <span class="bg-element">💄</span>
+        <span class="bg-element">✨</span>
+        <span class="bg-element">🌺</span>
+        <span class="bg-element">💫</span>
+      </div>
+      
       <div class="container">
         <div class="footer-content">
+          <!-- Brand Section -->
           <div class="footer-section brand-section">
             <h3 class="footer-brand">
               <i class="fas fa-spa"></i> Chhouk<span class="brand-highlight">Shop</span>
@@ -142,6 +166,7 @@
             </div>
           </div>
           
+          <!-- Quick Links -->
           <div class="footer-section">
             <h4>Quick Links</h4>
             <ul class="footer-links">
@@ -152,6 +177,7 @@
             </ul>
           </div>
           
+          <!-- Account -->
           <div class="footer-section">
             <h4>My Account</h4>
             <ul class="footer-links">
@@ -163,6 +189,7 @@
             </ul>
           </div>
           
+          <!-- Beauty Tips -->
           <div class="footer-section">
             <h4>Beauty Tips</h4>
             <ul class="footer-links">
@@ -174,6 +201,7 @@
           </div>
         </div>
         
+        <!-- Bottom -->
         <div class="footer-bottom">
           <div class="footer-social">
             <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
@@ -263,7 +291,207 @@ watch(
 
 <style scoped>
 /* ============================================
-   PROFESSIONAL NAVBAR - FEMININE STYLE
+   FLOATING DECORATIVE ELEMENTS
+   ============================================ */
+/* ============================================
+   FLOATING BACKGROUND DECORATIVE ELEMENTS (20 Elements)
+   ============================================ */
+.bg-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-element {
+  position: absolute;
+  font-size: 3rem;
+  animation: floatBg 15s ease-in-out infinite;
+  opacity: 0.06;
+}
+
+/* 20 Unique Positioned Elements */
+.bg-element:nth-child(1) { 
+  top: 3%; 
+  left: 5%; 
+  animation-delay: 0s; 
+}
+
+.bg-element:nth-child(2) { 
+  top: 8%; 
+  right: 8%; 
+  animation-delay: 1.5s; 
+  font-size: 3.5rem; 
+}
+
+.bg-element:nth-child(3) { 
+  top: 15%; 
+  left: 15%; 
+  animation-delay: 3s; 
+  font-size: 2.5rem; 
+}
+
+.bg-element:nth-child(4) { 
+  top: 20%; 
+  right: 20%; 
+  animation-delay: 4.5s; 
+  font-size: 4rem; 
+}
+
+.bg-element:nth-child(5) { 
+  top: 30%; 
+  left: 3%; 
+  animation-delay: 6s; 
+  font-size: 2.8rem; 
+}
+
+.bg-element:nth-child(6) { 
+  top: 35%; 
+  right: 3%; 
+  animation-delay: 7.5s; 
+  font-size: 3.2rem; 
+}
+
+.bg-element:nth-child(7) { 
+  top: 45%; 
+  left: 12%; 
+  animation-delay: 9s; 
+  font-size: 2.2rem; 
+}
+
+.bg-element:nth-child(8) { 
+  top: 50%; 
+  right: 12%; 
+  animation-delay: 10.5s; 
+  font-size: 3.8rem; 
+}
+
+.bg-element:nth-child(9) { 
+  top: 58%; 
+  left: 4%; 
+  animation-delay: 12s; 
+  font-size: 2.6rem; 
+}
+
+.bg-element:nth-child(10) { 
+  top: 62%; 
+  right: 4%; 
+  animation-delay: 13.5s; 
+  font-size: 3rem; 
+}
+
+.bg-element:nth-child(11) { 
+  top: 70%; 
+  left: 18%; 
+  animation-delay: 1s; 
+  font-size: 2.4rem; 
+}
+
+.bg-element:nth-child(12) { 
+  top: 75%; 
+  right: 18%; 
+  animation-delay: 2.5s; 
+  font-size: 3.6rem; 
+}
+
+.bg-element:nth-child(13) { 
+  top: 82%; 
+  left: 6%; 
+  animation-delay: 4s; 
+  font-size: 2.9rem; 
+}
+
+.bg-element:nth-child(14) { 
+  top: 88%; 
+  right: 6%; 
+  animation-delay: 5.5s; 
+  font-size: 3.3rem; 
+}
+
+.bg-element:nth-child(15) { 
+  top: 93%; 
+  left: 14%; 
+  animation-delay: 7s; 
+  font-size: 2.7rem; 
+}
+
+.bg-element:nth-child(16) { 
+  top: 5%; 
+  left: 50%; 
+  animation-delay: 8.5s; 
+  font-size: 2.1rem; 
+}
+
+.bg-element:nth-child(17) { 
+  top: 25%; 
+  right: 50%; 
+  animation-delay: 10s; 
+  font-size: 3.4rem; 
+}
+
+.bg-element:nth-child(18) { 
+  top: 48%; 
+  left: 50%; 
+  animation-delay: 11.5s; 
+  font-size: 2.3rem; 
+}
+
+.bg-element:nth-child(19) { 
+  top: 68%; 
+  right: 50%; 
+  animation-delay: 13s; 
+  font-size: 3.1rem; 
+}
+
+.bg-element:nth-child(20) { 
+  top: 90%; 
+  left: 50%; 
+  animation-delay: 14.5s; 
+  font-size: 2.5rem; 
+}
+
+/* Animation */
+@keyframes floatBg {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg) scale(1); 
+  }
+  25% { 
+    transform: translateY(-40px) rotate(5deg) scale(1.1); 
+  }
+  75% { 
+    transform: translateY(40px) rotate(-5deg) scale(0.9); 
+  }
+}
+/* Different animation speeds for each element */
+.bg-element:nth-child(1) { animation-duration: 18s; }
+.bg-element:nth-child(2) { animation-duration: 14s; }
+.bg-element:nth-child(3) { animation-duration: 20s; }
+.bg-element:nth-child(4) { animation-duration: 16s; }
+.bg-element:nth-child(5) { animation-duration: 22s; }
+.bg-element:nth-child(6) { animation-duration: 13s; }
+.bg-element:nth-child(7) { animation-duration: 19s; }
+.bg-element:nth-child(8) { animation-duration: 17s; }
+.bg-element:nth-child(9) { animation-duration: 21s; }
+.bg-element:nth-child(10) { animation-duration: 15s; }
+.bg-element:nth-child(11) { animation-duration: 23s; }
+.bg-element:nth-child(12) { animation-duration: 12s; }
+.bg-element:nth-child(13) { animation-duration: 20s; }
+.bg-element:nth-child(14) { animation-duration: 18s; }
+.bg-element:nth-child(15) { animation-duration: 16s; }
+.bg-element:nth-child(16) { animation-duration: 14s; }
+.bg-element:nth-child(17) { animation-duration: 22s; }
+.bg-element:nth-child(18) { animation-duration: 19s; }
+.bg-element:nth-child(19) { animation-duration: 15s; }
+.bg-element:nth-child(20) { animation-duration: 17s; }
+
+
+
+/* ============================================
+   NAVBAR - PROFESSIONAL STYLE
    ============================================ */
 .navbar {
   padding: 0.6rem 0;
@@ -274,11 +502,6 @@ watch(
   transition: all 0.3s ease;
 }
 
-.navbar.scrolled {
-  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08) !important;
-}
-
-/* Brand */
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -290,7 +513,7 @@ watch(
 .brand-icon {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -298,12 +521,12 @@ watch(
   color: white;
   font-size: 1.2rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3);
+  box-shadow: 0 4px 15px rgba(253, 121, 168, 0.3);
 }
 
 .navbar-brand:hover .brand-icon {
   transform: rotate(-10deg) scale(1.1);
-  box-shadow: 0 6px 25px rgba(245, 87, 108, 0.4);
+  box-shadow: 0 6px 25px rgba(253, 121, 168, 0.4);
 }
 
 .brand-text {
@@ -314,20 +537,18 @@ watch(
 }
 
 .brand-highlight {
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Nav Links */
 .nav-link {
   font-weight: 500;
   padding: 0.6rem 1.2rem !important;
   color: #4a4a5a !important;
   border-radius: 8px;
   transition: all 0.3s ease;
-  position: relative;
   font-size: 0.9rem;
 }
 
@@ -338,8 +559,8 @@ watch(
 }
 
 .nav-link:hover {
-  color: #f5576c !important;
-  background: rgba(245, 87, 108, 0.06);
+  color: #fd79a8 !important;
+  background: rgba(253, 121, 168, 0.06);
   transform: translateY(-1px);
 }
 
@@ -348,16 +569,11 @@ watch(
 }
 
 .nav-link.active {
-  color: #f5576c !important;
-  background: rgba(245, 87, 108, 0.08);
+  color: #fd79a8 !important;
+  background: rgba(253, 121, 168, 0.08);
   font-weight: 600;
 }
 
-.nav-link.active i {
-  color: #f5576c;
-}
-
-/* Icon Buttons */
 .icon-btn {
   position: relative;
   width: 40px;
@@ -375,8 +591,8 @@ watch(
 }
 
 .icon-btn:hover {
-  background: rgba(245, 87, 108, 0.08);
-  color: #f5576c;
+  background: rgba(253, 121, 168, 0.08);
+  color: #fd79a8;
   transform: translateY(-2px);
 }
 
@@ -390,7 +606,7 @@ watch(
 }
 
 .icon-btn .fas.fa-heart {
-  color: #f5576c;
+  color: #fd79a8;
 }
 
 .icon-badge {
@@ -406,9 +622,9 @@ watch(
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   color: white;
-  box-shadow: 0 2px 8px rgba(245, 87, 108, 0.4);
+  box-shadow: 0 2px 8px rgba(253, 121, 168, 0.4);
   animation: pulse 2s infinite;
 }
 
@@ -417,14 +633,12 @@ watch(
   50% { transform: scale(1.08); }
 }
 
-/* Buttons */
 .btn-sm {
   padding: 0.4rem 1.2rem;
   font-size: 0.85rem;
   font-weight: 500;
   border-radius: 8px;
   transition: all 0.3s ease;
-  letter-spacing: 0.2px;
 }
 
 .btn-sm:hover {
@@ -433,26 +647,26 @@ watch(
 }
 
 .btn-outline-primary {
-  border: 2px solid #f5576c;
-  color: #f5576c;
+  border: 2px solid #fd79a8;
+  color: #fd79a8;
 }
 
 .btn-outline-primary:hover {
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   border-color: transparent;
   color: white;
-  box-shadow: 0 4px 20px rgba(245, 87, 108, 0.3);
+  box-shadow: 0 4px 20px rgba(253, 121, 168, 0.3);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   border: none;
   color: white;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(245, 87, 108, 0.4);
+  box-shadow: 0 4px 20px rgba(253, 121, 168, 0.4);
 }
 
 /* User Dropdown */
@@ -470,8 +684,8 @@ watch(
 }
 
 .user-btn:hover {
-  border-color: #f5576c;
-  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.1);
+  border-color: #fd79a8;
+  box-shadow: 0 4px 15px rgba(253, 121, 168, 0.1);
   transform: translateY(-1px);
 }
 
@@ -479,7 +693,7 @@ watch(
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -536,7 +750,7 @@ watch(
 .dropdown-header {
   padding: 1rem;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(245, 87, 108, 0.05), rgba(240, 147, 251, 0.05));
+  background: linear-gradient(135deg, rgba(253, 121, 168, 0.05), rgba(225, 112, 85, 0.05));
   margin-bottom: 0.3rem;
 }
 
@@ -550,7 +764,7 @@ watch(
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -558,11 +772,6 @@ watch(
   font-weight: 600;
   font-size: 1rem;
   flex-shrink: 0;
-}
-
-.user-details {
-  flex: 1;
-  min-width: 0;
 }
 
 .user-name-large {
@@ -577,11 +786,6 @@ watch(
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.dropdown-divider {
-  margin: 0.3rem 0;
-  opacity: 0.08;
 }
 
 .dropdown-item {
@@ -605,13 +809,13 @@ watch(
 }
 
 .dropdown-item:hover {
-  background: rgba(245, 87, 108, 0.06);
-  color: #f5576c;
+  background: rgba(253, 121, 168, 0.06);
+  color: #fd79a8;
   transform: translateX(4px);
 }
 
 .dropdown-item:hover i {
-  color: #f5576c;
+  color: #fd79a8;
   transform: scale(1.1);
 }
 
@@ -629,16 +833,17 @@ watch(
 }
 
 /* ============================================
-   PROFESSIONAL FOOTER - FEMININE STYLE
+   FOOTER - PROFESSIONAL BEAUTY STYLE
    ============================================ */
 .footer {
-  background: linear-gradient(160deg, #1a1a2e 0%, #2d1b3d 50%, #1a1a2e 100%);
+  position: relative;
+  background: linear-gradient(160deg, #0f0c1a 0%, #1a0f24 30%, #2d1b3d 60%, #1a0f24 100%);
   color: #e2e8f0;
   padding: 60px 0 0;
   margin-top: 60px;
-  position: relative;
+  overflow: hidden;
   border-top: 3px solid transparent;
-  border-image: linear-gradient(90deg, #f093fb, #f5576c, #ff6b6b) 1;
+  border-image: linear-gradient(90deg, #fd79a8, #e17055, #fd79a8) 1;
 }
 
 .footer-content {
@@ -650,17 +855,19 @@ watch(
 }
 
 .footer-brand {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: white;
   margin-bottom: 16px;
+  letter-spacing: -0.5px;
 }
 
 .footer-brand i {
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  margin-right: 8px;
 }
 
 .footer-description {
@@ -668,6 +875,7 @@ watch(
   line-height: 1.8;
   font-size: 0.95rem;
   margin-bottom: 20px;
+  max-width: 350px;
 }
 
 .footer-contact p {
@@ -677,23 +885,42 @@ watch(
   display: flex;
   align-items: center;
   gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.footer-contact p:hover {
+  color: #fd79a8;
 }
 
 .footer-contact i {
   width: 20px;
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-size: 0.95rem;
 }
 
 .footer-section h4 {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: white;
   margin-bottom: 18px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-section h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, #fd79a8, #e17055);
+  border-radius: 2px;
 }
 
 .footer-links {
@@ -703,7 +930,7 @@ watch(
 }
 
 .footer-links li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .footer-links a {
@@ -718,7 +945,7 @@ watch(
 
 .footer-links a i {
   font-size: 0.6rem;
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -727,8 +954,8 @@ watch(
 }
 
 .footer-links a:hover {
-  color: #f093fb;
-  padding-left: 8px;
+  color: #fd79a8;
+  padding-left: 6px;
 }
 
 .footer-links a:hover i {
@@ -747,67 +974,71 @@ watch(
 
 .footer-social {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .social-link {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #94a3b8;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
 }
 
 .social-link:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  color: white;
 }
 
 .social-link.facebook:hover {
-  color: #1877f2;
-  background: rgba(24, 119, 242, 0.12);
-  border-color: rgba(24, 119, 242, 0.2);
+  background: #1877f2;
+  border-color: #1877f2;
+  box-shadow: 0 4px 20px rgba(24, 119, 242, 0.3);
 }
 
 .social-link.instagram:hover {
-  color: #e4405f;
-  background: rgba(228, 64, 95, 0.12);
-  border-color: rgba(228, 64, 95, 0.2);
+  background: #e4405f;
+  border-color: #e4405f;
+  box-shadow: 0 4px 20px rgba(228, 64, 95, 0.3);
 }
 
 .social-link.pinterest:hover {
-  color: #bd081c;
-  background: rgba(189, 8, 28, 0.12);
-  border-color: rgba(189, 8, 28, 0.2);
+  background: #bd081c;
+  border-color: #bd081c;
+  box-shadow: 0 4px 20px rgba(189, 8, 28, 0.3);
 }
 
 .social-link.youtube:hover {
-  color: #ff0000;
-  background: rgba(255, 0, 0, 0.12);
-  border-color: rgba(255, 0, 0, 0.2);
+  background: #ff0000;
+  border-color: #ff0000;
+  box-shadow: 0 4px 20px rgba(255, 0, 0, 0.3);
 }
 
 .social-link.tiktok:hover {
-  color: #000000;
-  background: rgba(0, 0, 0, 0.12);
-  border-color: rgba(0, 0, 0, 0.2);
-  color: #000;
+  background: #000000;
+  border-color: #000000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .footer-copyright {
   color: #64748b;
   font-size: 0.85rem;
   margin: 0;
+  letter-spacing: 0.3px;
 }
 
 .footer-copyright i {
   margin-right: 4px;
+  color: #fd79a8;
 }
 
 /* ============================================
@@ -817,6 +1048,10 @@ watch(
   .footer-content {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
+  }
+  
+  .footer-description {
+    max-width: 100%;
   }
   
   .nav-link {
@@ -852,13 +1087,6 @@ watch(
     right: -10px;
   }
   
-  .footer-content {
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-  }
-}
-
-@media (max-width: 576px) {
   .footer {
     padding: 40px 0 0;
     margin-top: 40px;
@@ -866,7 +1094,7 @@ watch(
   
   .footer-content {
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 28px;
     text-align: center;
   }
   
@@ -878,10 +1106,22 @@ watch(
     justify-content: center;
   }
   
+  .footer-section h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .footer-description {
+    max-width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
   .footer-bottom {
     flex-direction: column;
     text-align: center;
-    gap: 12px;
+    gap: 14px;
   }
   
   .footer-social {
@@ -899,6 +1139,48 @@ watch(
   }
 }
 
+@media (max-width: 576px) {
+  .footer {
+    padding: 30px 0 0;
+    margin-top: 30px;
+  }
+  
+  .footer-content {
+    gap: 24px;
+    padding-bottom: 30px;
+  }
+  
+  .footer-brand {
+    font-size: 1.3rem;
+  }
+  
+  .footer-description {
+    font-size: 0.9rem;
+  }
+  
+  .footer-contact p {
+    font-size: 0.85rem;
+  }
+  
+  .footer-section h4 {
+    font-size: 0.8rem;
+  }
+  
+  .footer-links a {
+    font-size: 0.85rem;
+  }
+  
+  .social-link {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+  }
+  
+  .footer-copyright {
+    font-size: 0.75rem;
+  }
+}
+
 /* ============================================
    SCROLLBAR
    ============================================ */
@@ -911,18 +1193,18 @@ watch(
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #e67ec8, #e8455a);
+  background: linear-gradient(135deg, #e17055, #d63031);
 }
 </style>
 
 <style>
 /* ============================================
-   GLOBAL STYLES - FEMININE THEME
+   GLOBAL STYLES
    ============================================ */
 * {
   margin: 0;
@@ -954,13 +1236,11 @@ main {
   padding: 0 1.5rem;
 }
 
-/* Selection */
 ::selection {
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   color: white;
 }
 
-/* Links */
 a {
   text-decoration: none;
   color: inherit;
@@ -1019,8 +1299,8 @@ a {
 }
 
 .form-control:focus {
-  border-color: #f5576c;
-  box-shadow: 0 0 0 4px rgba(245, 87, 108, 0.1);
+  border-color: #fd79a8;
+  box-shadow: 0 0 0 4px rgba(253, 121, 168, 0.1);
 }
 
 /* Transitions */

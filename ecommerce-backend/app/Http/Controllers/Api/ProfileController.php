@@ -20,6 +20,7 @@ class ProfileController extends Controller
             'email' => 'sometimes|email|unique:users,email,' . $user->id,
             'phone' => 'nullable|string|max:20',
             'address' => 'nullable|string',
+            'telegram_chat_id' => 'nullable|string|max:255',
         ]);
 
         $user->update($validated);

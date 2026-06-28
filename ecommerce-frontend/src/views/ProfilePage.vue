@@ -174,6 +174,23 @@
                       >
                     </div>
                   </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="telegram-chat-id" class="form-label">
+                        <i class="fab fa-telegram"></i> Telegram Chat ID
+                      </label>
+                      <input 
+                        type="text" 
+                        id="telegram-chat-id"
+                        class="form-control" 
+                        v-model="profile.telegram_chat_id" 
+                        placeholder="Paste the chat ID from your Telegram bot"
+                      >
+                      <small class="text-muted d-block mt-1">
+                        Send <strong>/start</strong> to your bot, copy the chat ID, then paste it here.
+                      </small>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="form-actions">
@@ -384,6 +401,7 @@ const profile = reactive({
   email: user.value?.email || '',
   phone: user.value?.phone || '',
   address: user.value?.address || '',
+  telegram_chat_id: user.value?.telegram_chat_id || '',
 })
 
 const password = reactive({

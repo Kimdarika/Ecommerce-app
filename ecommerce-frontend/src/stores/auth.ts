@@ -15,6 +15,10 @@ export const useAuthStore = defineStore('auth', {
             console.log('isAuthenticated check:', { token, stateToken: state.token, isAuth })
             return isAuth
         },
+        isAdmin: (state) => {
+            const user = state.user || JSON.parse(localStorage.getItem('user') || 'null')
+            return user?.role === 'admin'
+        },
         userName: (state) => {
             const user = state.user || JSON.parse(localStorage.getItem('user') || 'null')
             return user?.name || 'Guest'

@@ -32,11 +32,22 @@
     </div>
     
     <div class="card-footer bg-transparent">
-      <button class="btn btn-primary w-100" @click="$emit('add-to-cart', product.id)" 
-              :disabled="product.stock_quantity === 0">
-        <i class="fas fa-cart-plus me-2"></i>
-        {{ product.stock_quantity === 0 ? 'Out of Stock' : 'Add to Cart' }}
-      </button>
+      <div class="d-flex gap-2">
+        <button
+          class="btn btn-outline-danger wishlist-btn"
+          @click="toggleWishlist"
+          :disabled="wishlistLoading"
+          :title="isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'"
+        >
+          <i class="fas fa-heart" :class="{ 'text-danger': isInWishlist }"></i>
+        </button>
+
+        <button class="btn btn-primary add-to-cart-btn flex-grow-1" @click="emit('add-to-cart', product.id)" 
+                :disabled="product.stock_quantity === 0">
+          <i class="fas fa-cart-plus me-2"></i>
+          {{ product.stock_quantity === 0 ? 'Out of Stock' : 'Add to Cart' }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -44,14 +55,21 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { Product } from '@/types'
+import { useAuthStore } from '@/stores/auth'
+import { useWishlistStore } from '@/stores/wishlist'
+import { useToast } from 'vue-toastification'
 
 const props = defineProps<{
   product: Product
 }>()
 
-defineEmits<{
+const emit = defineEmits<{
   (e: 'add-to-cart', productId: number): void
 }>()
+
+const authStore = useAuthStore()
+const wishlistStore = useWishlistStore()
+const toast = useToast()
 
 // FIXED: Proper image handling
 const productImage = computed(() => {
@@ -63,10 +81,41 @@ const productImage = computed(() => {
   if (props.product.image.startsWith('http://') || props.product.image.startsWith('https://')) {
     return props.product.image
   }
-  
+
+  if (props.product.image.startsWith('/')) {
+    return `http://localhost:8000${props.product.image}`
+  }
+
   // If it's from local storage
   return `http://localhost:8000/storage/${props.product.image}`
 })
+
+const isInWishlist = computed(() => wishlistStore.isInWishlist(props.product.id))
+const wishlistLoading = computed(() => wishlistStore.loading)
+
+const toggleWishlist = async () => {
+  if (!authStore.isAuthenticated) {
+    toast.warning('Please login first')
+    return
+  }
+
+  if (isInWishlist.value) {
+    const result = await wishlistStore.removeFromWishlist(props.product.id)
+    if (result.success) {
+      toast.info('Removed from wishlist 💕')
+    } else {
+      toast.error(result.message || 'Failed to remove from wishlist')
+    }
+    return
+  }
+
+  const result = await wishlistStore.addToWishlist(props.product.id)
+  if (result.success) {
+    toast.success('Added to wishlist! ❤️')
+  } else {
+    toast.error(result.message || 'Failed to add to wishlist')
+  }
+}
 
 // Fallback on error
 const handleImageError = (event: Event) => {
@@ -121,6 +170,32 @@ const handleImageError = (event: Event) => {
   background: transparent;
   border-top: none;
   padding-top: 0;
+}
+
+.wishlist-btn {
+  width: 44px;
+  flex: 0 0 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-to-cart-btn {
+  background: linear-gradient(135deg, #fd79a8, #e17055);
+  border: none;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(253, 121, 168, 0.22);
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #e17055, #fd79a8);
+  color: #fff;
+}
+
+.add-to-cart-btn:disabled {
+  background: #cbd5e1;
+  border-color: #cbd5e1;
+  box-shadow: none;
 }
 
 .badge {

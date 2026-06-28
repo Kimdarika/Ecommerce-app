@@ -11,6 +11,7 @@ import OrdersPage from '../views/OrdersPage.vue'
 import ProfilePage from '../views/ProfilePage.vue'
 import AboutPage from '../views/AboutPage.vue'
 import ContactPage from '../views/ContactPage.vue'
+import AdminRedirect from '../views/AdminRedirect.vue'
 
 const routes = [
   // Public Routes
@@ -83,11 +84,20 @@ const routes = [
     component: OrdersPage,
     meta: { requiresAuth: true } 
   },
-  { 
-    path: '/profile', 
+  {
+    path: '/profile',
     name: 'profile',
     component: ProfilePage,
-    meta: { requiresAuth: true } 
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/admin',
+    name: 'admin-redirect',
+    component: AdminRedirect
+  },
+  {
+    path: '/admin/dashboard',
+    redirect: '/admin'
   },
   
   // Fallback

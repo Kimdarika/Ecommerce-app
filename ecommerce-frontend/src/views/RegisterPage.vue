@@ -46,7 +46,7 @@
                 </defs>
               </svg>
             </div>
-            <span class="brand-name">Glow<span class="brand-highlight">Beauty</span></span>
+            <span class="brand-name">Chhouk<span class="brand-highlight">Shop</span></span>
           </div>
 
           <!-- Tagline -->

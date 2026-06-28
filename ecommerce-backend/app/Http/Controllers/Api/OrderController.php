@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Cart;
+use App\Models\User;
+use App\Notifications\NewOrderNotification;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
 
 class OrderController extends Controller
@@ -38,59 +42,78 @@ class OrderController extends Controller
         ]);
 
         $user = $request->user();
-        $cartItems = $user->cart()->with('product')->get();
 
-        if ($cartItems->isEmpty()) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Cart is empty',
-            ], 422);
-        }
+        $order = DB::transaction(function () use ($user, $validated) {
+            $cartItems = $user->cart()->with('product')->get();
 
-        // Calculate totals
-        $subtotal = $cartItems->sum(function ($item) {
-            return $item->quantity * $item->product->price;
-        });
+            if ($cartItems->isEmpty()) {
+                abort(response()->json([
+                    'success' => false,
+                    'message' => 'Cart is empty',
+                ], 422));
+            }
 
-        $tax = $subtotal * 0.1; // 10% tax
-        $total = $subtotal + $tax;
+            foreach ($cartItems as $item) {
+                $productName = $item->product?->name ?? 'a product';
 
-        // Generate order number
-        $orderNumber = 'ORD-' . strtoupper(Str::random(8)) . '-' . time();
+                if (! $item->product || $item->product->stock_quantity < $item->quantity) {
+                    abort(response()->json([
+                        'success' => false,
+                        'message' => "Insufficient stock for {$productName}",
+                    ], 422));
+                }
+            }
 
-        // Create order
-        $order = Order::create([
-            'user_id' => $user->id,
-            'order_number' => $orderNumber,
-            'total_amount' => $total,
-            'discount' => 0,
-            'tax' => $tax,
-            'shipping_cost' => 0,
-            'status' => 'pending',
-            'shipping_address' => $validated['shipping_address'],
-            'billing_address' => $validated['billing_address'] ?? $validated['shipping_address'],
-            'payment_method' => $validated['payment_method'],
-            'payment_status' => 'pending',
-            'notes' => $validated['notes'] ?? null,
-        ]);
+            // Calculate totals
+            $subtotal = $cartItems->sum(function ($item) {
+                return $item->quantity * $item->product->price;
+            });
 
-        // Create order items and update stock
-        foreach ($cartItems as $item) {
-            OrderItem::create([
-                'order_id' => $order->id,
-                'product_id' => $item->product_id,
-                'quantity' => $item->quantity,
-                'price' => $item->product->price,
+            $tax = $subtotal * 0.1; // 10% tax
+            $total = $subtotal + $tax;
+
+            // Generate order number
+            $orderNumber = 'ORD-' . strtoupper(Str::random(8)) . '-' . time();
+
+            // Create order
+            $order = Order::create([
+                'user_id' => $user->id,
+                'order_number' => $orderNumber,
+                'total_amount' => $total,
+                'discount' => 0,
+                'tax' => $tax,
+                'shipping_cost' => 0,
+                'status' => 'pending',
+                'shipping_address' => $validated['shipping_address'],
+                'billing_address' => $validated['billing_address'] ?? $validated['shipping_address'],
+                'payment_method' => $validated['payment_method'],
+                'payment_status' => 'pending',
+                'notes' => $validated['notes'] ?? null,
             ]);
 
-            // Reduce stock
-            $product = $item->product;
-            $product->stock_quantity -= $item->quantity;
-            $product->save();
-        }
+            // Create order items and update stock
+            foreach ($cartItems as $item) {
+                OrderItem::create([
+                    'order_id' => $order->id,
+                    'product_id' => $item->product_id,
+                    'quantity' => $item->quantity,
+                    'price' => $item->product->price,
+                ]);
 
-        // Clear cart
-        $user->cart()->delete();
+                $item->product->decrement('stock_quantity', $item->quantity);
+            }
+
+            // Clear cart
+            $user->cart()->delete();
+
+            return $order;
+        });
+
+        // Notify every admin that a new order has been placed
+        $admins = User::where('role', 'admin')->get();
+        if ($admins->isNotEmpty()) {
+            Notification::send($admins, new NewOrderNotification($order->load('user', 'items.product')));
+        }
 
         return response()->json([
             'success' => true,

@@ -6,6 +6,7 @@ export interface User {
     phone?: string
     address?: string
     avatar?: string
+    telegram_chat_id?: string
     role: 'admin' | 'customer'
     created_at?: string
     updated_at?: string

@@ -24,15 +24,16 @@
         <!-- Product Images -->
         <div class="col-md-6">
           <div class="product-gallery">
-            <img :src="productImage" class="img-fluid rounded shadow main-image" :alt="product.name">
+            <img :src="productImage" class="img-fluid rounded shadow main-image" :alt="product.name" @error="handleImageError">
             
             <!-- Gallery Thumbnails -->
             <div v-if="product.gallery && product.gallery.length > 0" class="row g-2 mt-3">
               <div v-for="(img, index) in product.gallery" :key="index" class="col-3">
-                <img :src="`http://localhost:8000/storage/${img}`" 
+                <img :src="resolveImageUrl(img)" 
                      class="img-fluid rounded thumb-image" 
                      :alt="`${product.name} ${index + 1}`"
-                     @click="productImage = `http://localhost:8000/storage/${img}`">
+                     @click="productImage = resolveImageUrl(img)"
+                     @error="handleThumbImageError">
               </div>
             </div>
           </div>
@@ -256,15 +257,29 @@ const isInWishlist = computed(() => {
   return wishlistStore.isInWishlist(product.value.id)
 })
 
+const resolveImageUrl = (image?: string | null) => {
+  if (!image) {
+    return 'https://via.placeholder.com/600x400/0d6efd/ffffff?text=Product'
+  }
+
+  if (image.startsWith('http://') || image.startsWith('https://')) {
+    return image
+  }
+
+  if (image.startsWith('/')) {
+    return `http://localhost:8000${image}`
+  }
+
+  return `http://localhost:8000/storage/${image}`
+}
+
 // Methods
 const fetchProduct = async () => {
   loading.value = true
   try {
     const response = await axios.get(`/products/${route.params.slug}`)
     product.value = response.data
-    productImage.value = product.value.image 
-      ? `http://localhost:8000/storage/${product.value.image}`
-      : 'https://via.placeholder.com/600x400/0d6efd/ffffff?text=Product'
+    productImage.value = resolveImageUrl(product.value.image)
     
     // Fetch related products
     if (product.value.category_id) {
@@ -282,6 +297,16 @@ const fetchProduct = async () => {
   } finally {
     loading.value = false
   }
+}
+
+const handleImageError = (event: Event) => {
+  const img = event.target as HTMLImageElement
+  img.src = 'https://via.placeholder.com/600x400/0d6efd/ffffff?text=Product'
+}
+
+const handleThumbImageError = (event: Event) => {
+  const img = event.target as HTMLImageElement
+  img.src = 'https://via.placeholder.com/150x150/0d6efd/ffffff?text=Image'
 }
 
 const increaseQuantity = () => {

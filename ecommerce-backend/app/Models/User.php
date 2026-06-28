@@ -18,14 +18,17 @@ class User extends Authenticatable
         'phone',
         'address',
         'avatar',
+        'telegram_chat_id',
         'role',
     ];
-
+    public function hasTelegram()
+    {
+        return !is_null($this->telegram_chat_id);
+    }
     protected $hidden = [
         'password',
         'remember_token',
     ];
-
     public function orders()
     {
         return $this->hasMany(Order::class);
@@ -50,4 +53,6 @@ class User extends Authenticatable
     {
         return $this->role === 'admin';
     }
+
+    
 }

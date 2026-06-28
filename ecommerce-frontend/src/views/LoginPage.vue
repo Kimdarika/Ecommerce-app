@@ -44,7 +44,7 @@
                 </defs>
               </svg>
             </div>
-            <span class="brand-name">Glow<span class="brand-highlight">Beauty</span></span>
+            <span class="brand-name">Chhouk<span class="brand-highlight">Shop</span></span>
           </div>
 
           <div class="brand-tagline">
@@ -267,7 +267,7 @@ const handleLogin = async () => {
     
     if (result.success) {
       toast.success('Welcome back, beautiful! ✨')
-      await authStore.fetchUser()
+      await authStore.fetchCurrentUser()
       
       // Redirect based on role
       if (authStore.isAdmin) {

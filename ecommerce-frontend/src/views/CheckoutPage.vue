@@ -115,7 +115,7 @@ const placeOrder = async () => {
 
   loading.value = true
   try {
-    const response = await axios.post('/orders/checkout', form.value)
+    const response = await axios.post('/orders', form.value)
     toast.success('Order placed successfully! 🎉')
     await cartStore.clearCart()
     router.push(`/orders`)

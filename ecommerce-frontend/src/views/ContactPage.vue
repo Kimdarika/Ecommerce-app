@@ -544,7 +544,7 @@ const sendMessage = () => {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   color: white;
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
@@ -634,7 +634,7 @@ const sendMessage = () => {
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   color: white;
   border-radius: 60px;
   font-weight: 600;
@@ -1141,7 +1141,7 @@ const sendMessage = () => {
 .submit-btn {
   width: 100%;
   padding: 1rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   color: white;
   border: none;
   border-radius: 12px;
@@ -1398,7 +1398,7 @@ const sendMessage = () => {
 
 /* Live Chat Card */
 .live-chat-card {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   padding: 1.5rem;
   border-radius: 16px;
   color: white;
@@ -1531,7 +1531,7 @@ const sendMessage = () => {
   align-items: center;
   gap: 0.75rem;
   padding: 0.8rem 2rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   color: white;
   border-radius: 50px;
   text-decoration: none;

@@ -267,7 +267,7 @@ onMounted(() => {
 }
 
 .page-item.active .page-link {
-  background-color: #0d6efd;
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   border-color: #0d6efd;
 }
 

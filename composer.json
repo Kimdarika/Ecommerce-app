@@ -2,6 +2,7 @@
     "require": {
         "laravel/sanctum": "^4.3",
         "intervention/image": "^3.11",
-        "laravel/tinker": "^3.0"
+        "laravel/tinker": "^3.0",
+        "laravel-notification-channels/telegram": "^6.0"
     }
 }
