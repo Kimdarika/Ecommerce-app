@@ -14,7 +14,8 @@ Route::prefix('v1')->group(function () {
     Route::get('/products', [ProductController::class, 'index']);
     Route::get('/products/{id}', [ProductController::class, 'show']);
     Route::get('/search', [ProductController::class, 'search']);
-    
+    Route::post('/v1/login', [AuthController::class, 'login']);
+
     // Auth APIs
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login']);

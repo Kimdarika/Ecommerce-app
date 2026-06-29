@@ -4,6 +4,28 @@
 
 @section('content')
 <div class="products-page">
+    <div class="bg-elements">
+        <span class="bg-element">🌸</span>
+        <span class="bg-element">🌷</span>
+        <span class="bg-element">✨</span>
+        <span class="bg-element">🌺</span>
+        <span class="bg-element">💫</span>
+        <span class="bg-element">🦋</span>
+        <span class="bg-element">🌹</span>
+        <span class="bg-element">💖</span>
+        <span class="bg-element">🌟</span>
+        <span class="bg-element">🌷</span>
+        <span class="bg-element">🌻</span>
+        <span class="bg-element">💎</span>
+        <span class="bg-element">🌈</span>
+        <span class="bg-element">🪷</span>
+        <span class="bg-element">🌿</span>
+        <span class="bg-element">🌸</span>
+        <span class="bg-element">🌷</span>
+        <span class="bg-element">✨</span>
+        <span class="bg-element">🌺</span>
+        <span class="bg-element">💫</span>
+      </div>
     <!-- Page Header -->
     <div class="page-header">
         <div>
@@ -209,6 +231,197 @@
     .products-page {
         padding: 0;
     }
+    .bg-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-element {
+  position: absolute;
+  font-size: 3rem;
+  animation: floatBg 15s ease-in-out infinite;
+  opacity: 0.06;
+}
+
+/* 20 Unique Positioned Elements */
+.bg-element:nth-child(1) { 
+  top: 3%; 
+  left: 5%; 
+  animation-delay: 0s; 
+}
+
+.bg-element:nth-child(2) { 
+  top: 8%; 
+  right: 8%; 
+  animation-delay: 1.5s; 
+  font-size: 3.5rem; 
+}
+
+.bg-element:nth-child(3) { 
+  top: 15%; 
+  left: 15%; 
+  animation-delay: 3s; 
+  font-size: 2.5rem; 
+}
+
+.bg-element:nth-child(4) { 
+  top: 20%; 
+  right: 20%; 
+  animation-delay: 4.5s; 
+  font-size: 4rem; 
+}
+
+.bg-element:nth-child(5) { 
+  top: 30%; 
+  left: 3%; 
+  animation-delay: 6s; 
+  font-size: 2.8rem; 
+}
+
+.bg-element:nth-child(6) { 
+  top: 35%; 
+  right: 3%; 
+  animation-delay: 7.5s; 
+  font-size: 3.2rem; 
+}
+
+.bg-element:nth-child(7) { 
+  top: 45%; 
+  left: 12%; 
+  animation-delay: 9s; 
+  font-size: 2.2rem; 
+}
+
+.bg-element:nth-child(8) { 
+  top: 50%; 
+  right: 12%; 
+  animation-delay: 10.5s; 
+  font-size: 3.8rem; 
+}
+
+.bg-element:nth-child(9) { 
+  top: 58%; 
+  left: 4%; 
+  animation-delay: 12s; 
+  font-size: 2.6rem; 
+}
+
+.bg-element:nth-child(10) { 
+  top: 62%; 
+  right: 4%; 
+  animation-delay: 13.5s; 
+  font-size: 3rem; 
+}
+
+.bg-element:nth-child(11) { 
+  top: 70%; 
+  left: 18%; 
+  animation-delay: 1s; 
+  font-size: 2.4rem; 
+}
+
+.bg-element:nth-child(12) { 
+  top: 75%; 
+  right: 18%; 
+  animation-delay: 2.5s; 
+  font-size: 3.6rem; 
+}
+
+.bg-element:nth-child(13) { 
+  top: 82%; 
+  left: 6%; 
+  animation-delay: 4s; 
+  font-size: 2.9rem; 
+}
+
+.bg-element:nth-child(14) { 
+  top: 88%; 
+  right: 6%; 
+  animation-delay: 5.5s; 
+  font-size: 3.3rem; 
+}
+
+.bg-element:nth-child(15) { 
+  top: 93%; 
+  left: 14%; 
+  animation-delay: 7s; 
+  font-size: 2.7rem; 
+}
+
+.bg-element:nth-child(16) { 
+  top: 5%; 
+  left: 50%; 
+  animation-delay: 8.5s; 
+  font-size: 2.1rem; 
+}
+
+.bg-element:nth-child(17) { 
+  top: 25%; 
+  right: 50%; 
+  animation-delay: 10s; 
+  font-size: 3.4rem; 
+}
+
+.bg-element:nth-child(18) { 
+  top: 48%; 
+  left: 50%; 
+  animation-delay: 11.5s; 
+  font-size: 2.3rem; 
+}
+
+.bg-element:nth-child(19) { 
+  top: 68%; 
+  right: 50%; 
+  animation-delay: 13s; 
+  font-size: 3.1rem; 
+}
+
+.bg-element:nth-child(20) { 
+  top: 90%; 
+  left: 50%; 
+  animation-delay: 14.5s; 
+  font-size: 2.5rem; 
+}
+
+/* Animation */
+@keyframes floatBg {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg) scale(1); 
+  }
+  25% { 
+    transform: translateY(-40px) rotate(5deg) scale(1.1); 
+  }
+  75% { 
+    transform: translateY(40px) rotate(-5deg) scale(0.9); 
+  }
+}
+/* Different animation speeds for each element */
+.bg-element:nth-child(1) { animation-duration: 18s; }
+.bg-element:nth-child(2) { animation-duration: 14s; }
+.bg-element:nth-child(3) { animation-duration: 20s; }
+.bg-element:nth-child(4) { animation-duration: 16s; }
+.bg-element:nth-child(5) { animation-duration: 22s; }
+.bg-element:nth-child(6) { animation-duration: 13s; }
+.bg-element:nth-child(7) { animation-duration: 19s; }
+.bg-element:nth-child(8) { animation-duration: 17s; }
+.bg-element:nth-child(9) { animation-duration: 21s; }
+.bg-element:nth-child(10) { animation-duration: 15s; }
+.bg-element:nth-child(11) { animation-duration: 23s; }
+.bg-element:nth-child(12) { animation-duration: 12s; }
+.bg-element:nth-child(13) { animation-duration: 20s; }
+.bg-element:nth-child(14) { animation-duration: 18s; }
+.bg-element:nth-child(15) { animation-duration: 16s; }
+.bg-element:nth-child(16) { animation-duration: 14s; }
+.bg-element:nth-child(17) { animation-duration: 22s; }
+.bg-element:nth-child(18) { animation-duration: 19s; }
+.bg-element:nth-child(19) { animation-duration: 15s; }
+.bg-element:nth-child(20) { animation-duration: 17s; }
 
     /* ============================================
        PAGE HEADER

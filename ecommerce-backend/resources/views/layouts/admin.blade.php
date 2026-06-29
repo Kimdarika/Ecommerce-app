@@ -41,6 +41,41 @@
         /* ============================================
            SIDEBAR - FIXED NO SCROLL
            ============================================ */
+        .bg-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-element {
+            position: absolute;
+            font-size: 3rem;
+            animation: floatBg 15s ease-in-out infinite;
+            opacity: 0.08;
+        }
+
+        .bg-element:nth-child(1) { top: 5%; left: 5%; animation-delay: 0s; }
+        .bg-element:nth-child(2) { top: 15%; right: 10%; animation-delay: 2s; font-size: 3.5rem; }
+        .bg-element:nth-child(3) { bottom: 20%; left: 8%; animation-delay: 4s; }
+        .bg-element:nth-child(4) { bottom: 10%; right: 5%; animation-delay: 6s; font-size: 4rem; }
+        .bg-element:nth-child(5) { top: 45%; left: 2%; animation-delay: 1s; font-size: 2.5rem; }
+        .bg-element:nth-child(6) { top: 40%; right: 2%; animation-delay: 3s; font-size: 3.2rem; }
+        .bg-element:nth-child(7) { top: 70%; left: 3%; animation-delay: 5s; font-size: 2.8rem; }
+        .bg-element:nth-child(8) { top: 25%; right: 3%; animation-delay: 7s; }
+
+        @keyframes floatBg {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-40px) rotate(5deg) scale(1.1); }
+            75% { transform: translateY(40px) rotate(-5deg) scale(0.9); }
+        }
+
+
+
         .sidebar {
             background: linear-gradient(180deg, #0c1220 0%, #1a1a2e 50%, #16213e 100%) !important;
             height: 100vh;
@@ -656,6 +691,16 @@
     <!-- Sidebar -->
     <nav class="sidebar">
         <!-- Brand -->
+        <div class="bg-elements">
+            <span class="bg-element">🌸</span>
+            <span class="bg-element">💄</span>
+            <span class="bg-element">✨</span>
+            <span class="bg-element">🌺</span>
+            <span class="bg-element">💫</span>
+            <span class="bg-element">🦋</span>
+            <span class="bg-element">🌹</span>
+            <span class="bg-element">💖</span>
+        </div>
         <div class="sidebar-brand">
             <div class="brand-icon">
                 <i class="fas fa-store"></i>
