@@ -187,7 +187,7 @@ onMounted(fetchOrders)
    ============================================ */
 .orders-page {
   padding: 40px 0 60px;
-  background: #ffffff;
+  background:#fffbfc 0%;
   min-height: 100vh;
 }
 

@@ -423,7 +423,8 @@
         <div class="cta-box">
           <div class="cta-content">
             <span class="cta-tag">Ready to Shop?</span>
-            <h2>Start Your Beauty Journey Today</h2>
+            <h2 style="background: linear-gradient(135deg, #fd79a8, #e17055); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 2.5rem; font-weight: bold;">Start Your Beauty Journey Today</h2>
+
             <p>Join thousands of satisfied customers and discover the difference</p>
             <div class="cta-actions">
               <router-link to="/products" class="btn-primary-cta">
@@ -431,7 +432,7 @@
                 Shop Now
                 <span class="btn-arrow">→</span>
               </router-link>
-              <router-link to="/contact" class="btn-secondary-cta">
+              <router-link to="/contact" style="color:black" class="btn-secondary-cta">
                 <i class="fas fa-envelope"></i>
                 Contact Us
               </router-link>
@@ -551,7 +552,7 @@ const handleTeamImageError = (event: Event) => {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   color: white;
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
@@ -583,7 +584,7 @@ const handleTeamImageError = (event: Event) => {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 40%, #f093fb 80%);
+  background: linear-gradient(135deg, #d466ea 0%, #764ba2 40%, #f093fb 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -641,7 +642,7 @@ const handleTeamImageError = (event: Event) => {
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+   background: linear-gradient(135deg, #fd79a8, #e17055);
   color: white;
   border-radius: 60px;
   font-weight: 600;

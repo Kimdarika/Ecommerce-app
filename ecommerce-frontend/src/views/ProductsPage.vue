@@ -3,7 +3,7 @@
     <!-- Page Header -->
     <div class="d-flex justify-content-between align-items-center mb-4">
       <div>
-        <h2><i class="fas fa-box text-primary"></i> All Products</h2>
+        <h2><i class="fas fa-box" style="background: linear-gradient(135deg, #fd79a8, #e17055); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i> All Products</h2>
         <p class="text-muted">Browse our collection of {{ pagination.total || 0 }} quality products</p>
       </div>
       <div>

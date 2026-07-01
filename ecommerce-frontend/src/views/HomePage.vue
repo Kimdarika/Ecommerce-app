@@ -262,7 +262,7 @@
         <div class="newsletter-wrapper">
           <div class="newsletter-content">
             <span class="newsletter-tag">Stay Updated</span>
-            <h2>Subscribe to Our Newsletter</h2>
+            <h2 class="gradient-text">Subscribe to Our Newsletter</h2>
             <p>Get exclusive offers, new product alerts, and beauty tips</p>
             <form class="newsletter-form" @submit.prevent="handleSubscribe">
               <input 
@@ -445,6 +445,18 @@ onBeforeUnmount(() => {
 /* ============================================
    HOME PAGE - PROFESSIONAL BEAUTY STYLE
    ============================================ */
+   .gradient-text{
+    .gradient-text {
+  /* Fallback color for unsupported clients */
+  color: #fd79a8; 
+  /* Apply the gradient */
+  background: linear-gradient(135deg, #fd79a8, #e17055);
+  /* Clip the background to the text shape */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+   }
 .home-page {
   font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
@@ -1550,7 +1562,7 @@ onBeforeUnmount(() => {
 .newsletter-form {
   display: flex;
   gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.05);
+  background:rgb(243, 243, 243);
   padding: 0.5rem;
   border-radius: 60px;
   backdrop-filter: blur(20px);
@@ -1562,7 +1574,7 @@ onBeforeUnmount(() => {
   border: none;
   background: transparent;
   padding: 0.9rem 1.5rem;
-  color: white;
+  color: rgb(91, 91, 91);
   font-size: 1rem;
   border-radius: 50px;
   outline: none;

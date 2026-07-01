@@ -196,8 +196,8 @@
       <div class="mt-5" v-if="relatedProducts.length > 0">
         <h4><i class="fas fa-sync text-primary"></i> Related Products</h4>
         <div class="row g-4 mt-2">
-          <div v-for="product in relatedProducts" :key="product.id" class="col-md-3 col-sm-6">
-            <ProductCard :product="product" @add-to-cart="handleAddToCart" />
+          <div v-for="relatedProduct in relatedProducts" :key="relatedProduct.id" class="col-md-3 col-sm-6">
+            <ProductCard :product="relatedProduct" @add-to-cart="handleAddToCart" />
           </div>
         </div>
       </div>

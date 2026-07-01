@@ -225,12 +225,12 @@ onMounted(() => {
 .cart-page {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 2rem 0 4rem;
-  background: #fdf8fa;
+  background: linear-gradient(160deg, #fff5f7 0%, #fce4ec 20%, #f3e8ff 50%, #eef2ff 80%, #f0f0ff 100%);
   min-height: 100vh;
 }
 
 .container {
-  max-width: 1325px;
+  max-width: 1200px;
 }
 
 /* ============================================
@@ -257,7 +257,7 @@ onMounted(() => {
 .icon-wrapper {
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -591,7 +591,7 @@ onMounted(() => {
 }
 
 .qty-btn:hover:not(:disabled) {
-  background: #667eea;
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   color: white;
 }
 
@@ -738,7 +738,7 @@ onMounted(() => {
   gap: 0.5rem;
   width: 100%;
   padding: 0.9rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #fd79a8, #e17055);
   color: white;
   border: none;
   border-radius: 50px;

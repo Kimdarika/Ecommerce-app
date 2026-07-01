@@ -523,7 +523,7 @@ onMounted(async () => {
 }
 
 .container {
-  max-width: 1340px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -552,7 +552,7 @@ onMounted(async () => {
 .icon-wrapper {
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #f093fb, #f5576c);
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -625,7 +625,7 @@ onMounted(async () => {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #f093fb, #f5576c);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -653,7 +653,7 @@ onMounted(async () => {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #f093fb, #f5576c);
   border: 3px solid white;
   color: white;
   display: flex;
@@ -971,7 +971,7 @@ onMounted(async () => {
 
 .btn-save {
   padding: 0.7rem 2rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+ background: linear-gradient(135deg, #f093fb, #f5576c);
   color: white;
   border: none;
   border-radius: 50px;

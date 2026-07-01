@@ -99,6 +99,9 @@
                   <div class="user-info">
                     <div class="user-avatar-large">
                       <span>{{ userInitials }}</span>
+
+
+                      
                     </div>
                     <div class="user-details">
                       <div class="user-name-large">{{ user?.name || authStore.userName || 'Guest User' }}</div>

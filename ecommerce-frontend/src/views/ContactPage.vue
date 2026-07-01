@@ -456,7 +456,7 @@ const sendMessage = () => {
 }
 
 .container {
-  max-width: 1340px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
 }
